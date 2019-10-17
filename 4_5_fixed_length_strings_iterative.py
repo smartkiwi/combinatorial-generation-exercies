@@ -73,6 +73,7 @@ def strings_2_4_7_3(A, n):
 
 
 def char_to_base_num(array_of_chars, index_of):
+    """converts array of chars into number in base system (array of digits)"""
     array_of_digits = []
     for el in array_of_chars:
         array_of_digits.append(index_of[el])
@@ -80,6 +81,7 @@ def char_to_base_num(array_of_chars, index_of):
 
 
 def base_num_to_char(array_of_digits, A):
+    """converts number in base system (array of digits) into array of chars"""
     array_of_chars = []
     for el in array_of_digits:
         array_of_chars.append(A[el])
