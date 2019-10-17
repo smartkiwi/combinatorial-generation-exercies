@@ -16,6 +16,32 @@ def strings_2(A, n):
             break
 
 
+def strings_2_readable(A, n):
+    """modified version for better (mine) understanding"""
+    index_of = {x: i for i, x in enumerate(A)}
+    s = [A[0]] * n
+    final_s = [A[-1]] * n
+    while s != final_s:
+        yield ''.join(s)
+        s = increment_array_of_char(s, A)
+    yield ''.join(s)
+
+
+def increment_array_of_char(array_of_char, A):
+    index_of = {x: i for i, x in enumerate(A)}
+    n = len(A)
+    s = array_of_char
+    for i in range(1, n + 1):
+        if s[-i] == A[-1]:  # Last letter of alphabet, can not increment
+            s[-i] = A[0]
+        else:
+            s[-i] = A[index_of[s[-i]] + 1]  # Modify to next letter
+            return s
+
+    raise Exception("Cannot increment after max reached. Program should not get here")
+
+
+
 def strings_2_counter(A, n):
     """Exercise 4.7.1 (Easy): Modify the source code provided to count the number of resets.
     Experimentally verify that our closed form formula for T(n) is correct."""
@@ -131,3 +157,5 @@ if __name__ == "__main__":
 
     print strings_2_4_7_3.__doc__
     print list(strings_2_4_7_3(['0', '1', '2'], n=3))
+
+    print ",".join(strings_2_readable(['0', '1', '2'], n=3))
