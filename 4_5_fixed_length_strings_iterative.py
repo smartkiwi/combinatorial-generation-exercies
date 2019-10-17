@@ -23,12 +23,11 @@ def strings_2_readable(A, n):
     final_s = [A[-1]] * n
     while s != final_s:
         yield ''.join(s)
-        s = increment_array_of_char(s, A)
+        s = increment_array_of_char(s, A, index_of)
     yield ''.join(s)
 
 
-def increment_array_of_char(array_of_char, A):
-    index_of = {x: i for i, x in enumerate(A)}
+def increment_array_of_char(array_of_char, A, index_of):
     n = len(A)
     s = array_of_char
     for i in range(1, n + 1):
