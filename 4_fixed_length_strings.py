@@ -57,6 +57,10 @@ def strings_exercise_4_4_4(A, n, inner_call=False):
 
 
 def t_n(k, n):
+    """
+    Calculate T(n)
+    helper function
+    """
     return (math.pow(k, n + 1) - 1) / (k - 1)
 
 
